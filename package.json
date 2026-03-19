@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Denis539/mesto-ad#readme",
   "dependencies": {
+    "axios": "^1.13.6",
     "vite": "^7.3.1"
   },
   "devDependencies": {
