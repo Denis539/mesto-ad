@@ -47,7 +47,7 @@ const toggleButtonState = (inputList, buttonElement, settings) => {
     disableSubmitButton(buttonElement, settings);
   } else {
     enableSubmitButton(buttonElement, settings);
-  };
+  }
 };
 
 const setEventListeners = (formElement, settings) => {

@@ -6,20 +6,19 @@ const config = {
   },
 };
 
-/* Проверяем, успешно ли выполнен запрос, и отклоняем промис в случае ошибки. */
 const getResponseData = (res) => {
   return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
 };
 
 export const getUserInfo = () => {
-  return fetch(`${config.baseUrl}/users/me`, { // Запрос к API-серверу
-    headers: config.headers, // Подставляем заголовки
-  }).then(getResponseData);  // Проверяем успешность выполнения запроса
+  return fetch(`${config.baseUrl}/users/me`, {
+    headers: config.headers,
+  }).then(getResponseData);
 };
 
 export const getCardList = () => {
-  return fetch(`${config.baseUrl}/cards`, { // Запрос к API-серверу
-    headers: config.headers, // Подставляем заголовки
+  return fetch(`${config.baseUrl}/cards`, {
+    headers: config.headers,
   }).then(getResponseData);
 };
 

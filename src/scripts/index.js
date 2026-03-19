@@ -76,10 +76,8 @@ const formatDate = (date) =>
   });
   
 const handleInfoClick = (cardId) => {
-  /* Для вывода корректной информации необходимо получить актуальные данные с сервера. */
   getCardList()
     .then((cards) => {
-       // Другая логика наполнения модального окна данными
       let cardData;
       cards.forEach((card) => {
         if (card._id === cardId){
@@ -128,14 +126,12 @@ const handleInfoClick = (cardId) => {
     });
 };
 
-
 const handlePreviewPicture = ({ name, link }) => {
   imageElement.src = link;
   imageElement.alt = name;
   imageCaption.textContent = name;
   openModalWindow(imageModalWindow);
 };
-
 
 const handleProfileFormSubmit = (evt) => {
   evt.preventDefault();
@@ -157,7 +153,6 @@ const handleProfileFormSubmit = (evt) => {
     });
 };
 
-
 const handleAvatarFromSubmit = (evt) => {
   evt.preventDefault();
   avatarFormButton.textContent = "Сохранение...";
@@ -175,8 +170,7 @@ const handleAvatarFromSubmit = (evt) => {
       avatarFormButton.textContent = "Сохранить";
     });
 };
-
-
+ 
 const handleCardFormSubmit = (evt) => {
   evt.preventDefault();
   cardFormButton.textContent = "Создание...";
@@ -229,7 +223,6 @@ openCardFormButton.addEventListener("click", () => {
   openModalWindow(cardFormModalWindow);
 });
 
-//настраиваем обработчики закрытия попапов
 const allPopups = document.querySelectorAll(".popup");
 allPopups.forEach((popup) => {
   setCloseModalWindowEventListeners(popup);
@@ -247,7 +240,6 @@ const validationSettings = {
 };
 
 // включение валидации вызовом enableValidation
-// все настройки передаются при вызове
 enableValidation(validationSettings);
 
 
@@ -263,12 +255,12 @@ Promise.all([getCardList(), getUserInfo()])
           userId: userData._id,
         })
       );
-    }); // Код отвечающий за отрисовку полученных данных
+    });
     profileTitle.textContent = userData.name;
     profileDescription.textContent = userData.about;
     profileAvatar.style.backgroundImage = `url(${userData.avatar})`;
     userInfo = userData;
   })
   .catch((err) => {
-    console.log(err); // В случае возникновения ошибки выводим её в консоль
+    console.log(err);
   });
