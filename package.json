@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vite",
     "build": "vite build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist --branch main --repo https://github.com/Denis539/mesto-project.git"
   },
   "repository": {
     "type": "git",
